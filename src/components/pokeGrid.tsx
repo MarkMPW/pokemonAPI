@@ -81,7 +81,7 @@ export const PokeGrid = (
                           </Box>
                         ))}
                       </Box>
-                      <Image width={100} height={100} src={pokemon.img} alt="Pokemon" />
+                      <img width="100%" src={pokemon.img} alt="Pokemon" />
                     </Box>
                   </Box>
                 </Link>
