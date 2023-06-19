@@ -31,7 +31,7 @@ export const PokeGrid = (
         <>
           {pageNotFound && (
             <Box>
-              <Typography variant="h3" sx={{ color: "red" }}>
+              <Typography variant="h3" sx={{ color: " red" }}>
                 Pokemon not found
               </Typography>
             </Box>

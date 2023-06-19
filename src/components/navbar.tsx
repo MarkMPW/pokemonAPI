@@ -1,25 +1,21 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-"use client";
-import React, { useEffect } from "react";
-import { AppBar, TextField, Box } from "@mui/material";
-import { MyType } from "@/type/type";
+"use client"
+import React from "react"
+import { AppBar, TextField, Box } from "@mui/material"
+import { MyType } from "@/type/type"
 
 export const Navbar = ({
   searchInput,
   setSearchInput,
   pokemons,
-  setPokemon,
   setFilterPokemon,
   setPageNotFound,
-  setLoading,
 }: {
   searchInput: string;
   setSearchInput: React.Dispatch<React.SetStateAction<string>>;
   pokemons: MyType.PokemonType[],
-  setPokemon: React.Dispatch<React.SetStateAction<MyType.PokemonType[]>>,
   setFilterPokemon: React.Dispatch<React.SetStateAction<MyType.PokemonType[]>>;
   setPageNotFound: React.Dispatch<React.SetStateAction<boolean>>,
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -29,6 +25,7 @@ export const Navbar = ({
     if (query) {
       const searchPokemon = pokemons.filter((pokemons) =>
         pokemons.name.toLowerCase().includes(query)
+        ,setPageNotFound(false)
       );
       setFilterPokemon(searchPokemon);
       if (searchPokemon.length < 1) {

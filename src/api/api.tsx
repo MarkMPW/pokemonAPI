@@ -53,9 +53,8 @@ export const fetchPokemon = async (setPokemon: React.Dispatch<React.SetStateActi
         };
       });
   
-      setPokemon(fetchData)
-      // setFilterPokemon(pokemons)
-  
+      setPokemon(fetchData)  
+      
       console.log(fetchData)
       
     } catch (error) {

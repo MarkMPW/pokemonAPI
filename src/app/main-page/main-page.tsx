@@ -13,24 +13,28 @@ export const MainPage = () => {
   const [searchInput, setSearchInput] = useState<string>("");
   const [pageNotFound, setPageNotFound] = useState<boolean>(false)
 
-  useEffect(() => {
+  const loadingData = async () => {
     setLoading(true)
-    try {
-      fetchPokemon(setPokemon)
+    try{
+      await fetchPokemon(setPokemon)
     } catch (error) {
       console.log(error)
     } finally {
       setLoading(false)
     }
-  }, []);
+  }
+
+  useEffect(() => {
+    loadingData()
+  }, [])
 
   useEffect(() => {
     setFilterPokemon(pokemons);
-  }, [pokemons]);
+  }, [pokemons])
 
   return (
     <Box sx={{ padding: '24px' }}>
-      <Navbar searchInput={searchInput} setSearchInput={setSearchInput} pokemons={pokemons} setPokemon={setPokemon} setFilterPokemon={setFilterPokemon} setPageNotFound={setPageNotFound} setLoading={setLoading} />
+      <Navbar searchInput={searchInput} setSearchInput={setSearchInput} pokemons={pokemons} setFilterPokemon={setFilterPokemon} setPageNotFound={setPageNotFound} />
       <PokeGrid isLoading={isLoading} filterPokemon={filterPokemon} pageNotFound={pageNotFound}  />
     </Box>
   )
