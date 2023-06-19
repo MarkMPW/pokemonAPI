@@ -3,7 +3,6 @@
 import React, { useEffect } from "react";
 import { AppBar, TextField, Box } from "@mui/material";
 import { MyType } from "@/type/type";
-import { fetchPokemon } from "@/api/api";
 
 export const Navbar = ({
   searchInput,
@@ -23,14 +22,6 @@ export const Navbar = ({
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
 
-  useEffect(() => {
-    fetchPokemon(setPokemon, setLoading);
-  }, []);
-
-  useEffect(() => {
-    setFilterPokemon(pokemons);
-  }, [pokemons]);
-
   const handleSearchChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const query = e.target.value;
     setSearchInput(query);
@@ -47,7 +38,7 @@ export const Navbar = ({
       setFilterPokemon(pokemons);
       setPageNotFound(false);
     }
-  };
+  }
 
   return (
     <Box sx={{ textAlign: "center" }}>

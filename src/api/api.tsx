@@ -2,12 +2,11 @@
 import axios from "axios"
 import { MyType } from "../type/type"
 
-export const fetchPokemon = async (setPokemon: React.Dispatch<React.SetStateAction<MyType.PokemonType[]>>, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => {
+export const fetchPokemon = async (setPokemon: React.Dispatch<React.SetStateAction<MyType.PokemonType[]>>) => {
 
     const url = "https://pokeapi.co/api/v2/pokemon?/limit=20"
   
     try {
-      setLoading(true)
       const response = await axios.get<MyType.SetPokemon>(url)
       const datas = response.data;
       const results = datas.results;
@@ -61,8 +60,6 @@ export const fetchPokemon = async (setPokemon: React.Dispatch<React.SetStateActi
       
     } catch (error) {
       console.log(error)
-    } finally {
-      setLoading(false)
     }
-  };
+  }
   

@@ -2,9 +2,6 @@ import React from 'react'
 import { Grid, Box, Typography, CircularProgress } from "@mui/material";
 import Link from "next/link";
 import { MyType } from "@/type/type"
-import Image from 'next/image'
-
-
 
 export const PokeGrid = (
   {
